@@ -19,11 +19,14 @@ end
 #calc_method(4, "/", 4)
 
 input = " "
+hash_answer = {}
 counter = 0
+
 while input != "done"
 	p "Please enter something to calculate"
 	input = gets.chomp
 		if input == "done"
+			puts "#{counter} calculations performed:"
 			break
 		else
 			new_input = input.split(' ')
@@ -32,7 +35,16 @@ while input != "done"
 			str = new_input[1]
 			int2 = new_input[2].to_i
 
-			calc_method(int1, str, int2)
+			#calc_method(int1, str, int2)
+
+			hash_answer[input] = calc_method(int1, str, int2)
 		end
 
+counter += 1
+
 end
+
+hash_answer.each do |exp, ans|
+	puts "#{exp} = #{ans}"
+end
+
