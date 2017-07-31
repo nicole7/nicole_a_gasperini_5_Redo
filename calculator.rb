@@ -19,15 +19,11 @@ def check_input(exp)
 	#p new_exp
 	new_exp.each do |char|
 		if !num_sym.include?(char)
-			p "Not here"
+			puts "Not valid input"
 			return false
 		end
 	end
 end
-
-exp = "3 + a"
-checker = check_input(exp)
-p checker
 
 #calc_method(4, "+", 4)
 #calc_method(4, "-", 4)
@@ -39,19 +35,21 @@ hash_answer = {}
 counter = 0
 
 while input != "done"
-	p "Please enter something to calculate"
+	puts "Please enter something to calculate"
 	input = gets.chomp
+	checker = check_input(input)
 		if input == "done"
 			puts "#{counter} calculations performed:"
 			break
-		else
+		end
+		if checker == false
+			
+		else	
 			new_input = input.split(' ')
 
 			int1 = new_input[0].to_i
 			str = new_input[1]
 			int2 = new_input[2].to_i
-
-			#calc_method(int1, str, int2)
 
 			hash_answer[input] = calc_method(int1, str, int2)
 		end
