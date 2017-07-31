@@ -13,6 +13,22 @@ def calc_method(int1, str, int2)
 	p answer
 end
 
+def check_input(exp)
+	num_sym = "1234567890+-/* "
+	new_exp = exp.split('')
+	#p new_exp
+	new_exp.each do |char|
+		if !num_sym.include?(char)
+			p "Not here"
+			return false
+		end
+	end
+end
+
+exp = "3 + a"
+checker = check_input(exp)
+p checker
+
 #calc_method(4, "+", 4)
 #calc_method(4, "-", 4)
 #calc_method(4, "*", 4)
